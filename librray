@@ -1,0 +1,181 @@
+#include<stdio.h> //header files
+#include <time.h>
+#include <stdlib.h>
+#include<string.h>
+
+
+void menu();   //1
+void bookinfo(); //2      function prototypes
+void addbook();  //3
+void disaurthor();
+void distitle();
+void distotal();
+void welcomeMessage();
+void bookissue(); //8
+
+
+
+char nofa,btitle; 
+int num_ass;
+int i,j;
+
+struct book
+{
+	int ass_num[30];
+	char an[30];
+  char title[30];
+
+};
+
+struct book b[3];
+
+int main()
+{
+//struct book [3];
+  welcomeMessage();
+	menu(); //display menu for selection
+	//getch();
+	return 0;
+}
+
+void welcomeMessage()
+{
+    printf("\n\n\n\n\n");
+    printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t        =                 WELCOME                   =");
+    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+    printf("\n\n\n\t\t\t Enter any key to continue.....");
+    //getch();
+}
+
+void menu(){
+
+    int choice = 0;
+    do{
+
+	system("CLS");   //Clears the screen
+       	printf("\n\n\n\t\t\t1.Display book imformation");
+        printf("\n\t\t\t2.Add a new book");
+        printf("\n\t\t\t3.Display author name");
+        printf("\n\t\t\t4.Display book title");
+        printf("\n\t\t\t5.Display total book available");
+        printf("\n\t\t\t5.Issue Book");
+        printf("\n\t\t\t0.Exit");
+        printf("\n\n\n\t\t\tEnter choice => ");
+	      scanf("%d",&choice);
+
+	switch (choice)
+		{
+
+			case 1:
+				  bookinfo();
+					break;
+			case 2:
+					addbook();
+					break;
+			case 3:
+					disaurthor();
+					break;
+			case 4:
+					distitle();
+					break;
+      case 5:
+					distotal();
+					break;
+			case 6:
+					bookissue();
+					break;
+      case 0:
+					printf("\n\n\n\t\t\t\tThank you!!!\n\n\n\n\n");
+            exit(1);
+					break;
+			default:
+            printf("\n\n\n\t\t\t Try again...");
+    }
+		}
+
+  while(choice!=0);                                       
+ //int menu ();
+ return;
+
+}
+
+void  bookinfo(){
+    printf("Enter book information\n");
+for(i=0;i<3;i++)
+{
+printf (" The book accession number : = %d", b[i].ass_num);
+printf ("The arthur name :            = %s",b[i].an);
+printf ("The book title:           = %s",b[i].title);
+}
+}
+ menu ();  //
+	return;
+}
+
+void addbook(){
+for (i=0;i<3;i++)
+{
+printf ("Please enter accession number = ");
+scanf ("%d",&b[i].ass_num);
+printf ("Please enter arthur name = ");
+scanf ("%s",&b[i].an);
+printf ("Please enter title = ");
+scanf ("%s",&b[i].title);
+}
+	menu ();
+	return;
+}
+ void disaurthor (){
+printf ("Please enter arthur name : ");
+scanf ("%s",&nofa);
+for (i=0;i<3;i++)
+{
+if (nofa == b[i].an)
+printf ("%d %s %s ",b[i].ass_num,b[i].an,b[i].title);
+}
+}
+menu ();
+	return;
+}
+
+void distitle (){
+printf ("PLease enter the tilte of book : ");
+scanf ("%s",&btitle);
+for (i=0;i<3;i++)
+{
+if (btitle ==b[i].title)
+printf ("%d %s %s ",b[i].ass_num,b[i].an,b[i].title);
+}
+}
+menu ();
+	return;
+}
+
+#if 0
+ void distotal(){
+      int i,j;
+for (i=0;i<3;i++)
+{
+
+}
+
+ }
+ menu ();
+	return;
+}
+#endif
+
+#if 0
+void bookissue(){
+for (i=0;i<3;i++)
+{
+
+}
+}
+fflush(stdin);
+getchar();
+}
+#endif
